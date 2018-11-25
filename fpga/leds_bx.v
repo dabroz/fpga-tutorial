@@ -87,14 +87,12 @@ assign digits[3] = PIN_24;
 
 wire [3:0] ledout;
 
+   
     bcd bb(clk_counter[25:10], 3, ledout);
+    segmented seg(ledout, 0, leds);
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
-    //display(clk_counter[25:22]);
-
-
-//   leds = ~patterns[ledout];
   end
 
 endmodule
