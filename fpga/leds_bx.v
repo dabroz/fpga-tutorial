@@ -84,8 +84,18 @@ assign digits[2] = PIN_2;
 assign digits[3] = PIN_24;
 
 
+task display;
+ input wire [3:0] digit;
+ output wire [7:0] leds;
+begin
+ leds[7:4] = digit;
+ leds[3:0] = digit;
+end
+endtask
+
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
+    display(clk_counter[25:22], leds);
   end
 
   // SOS pattern
@@ -112,14 +122,6 @@ Digit Display gfedcba abcdefg a b c d e f g
   assign LED = blink_pattern[clk_counter[n-1:n-5]];
 
 
-  display(clk_counter[25:22], leds);
-
-endmodule
-
-module display(input wire [3:0] digit,
-  output wire [7:0] leds);
-
-  assign leds[7:4] = digit;
-  assign leds[3:0] = digit;
+//  display(clk_counter[25:22], leds);
 
 endmodule
