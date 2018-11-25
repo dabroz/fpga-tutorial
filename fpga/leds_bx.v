@@ -41,7 +41,12 @@ assign out[7] = ~dot;
 endmodule
 
 module splitter(input wire [1:0] sdigit, 
-                input wire [3:0] digits);
+                output wire [3:0] digits);
+
+assign digits[0] = sdigit == 0;
+assign digits[1] = sdigit == 1;
+assign digits[2] = sdigit == 2;
+assign digits[3] = sdigit == 3;
 
 endmodule
 
