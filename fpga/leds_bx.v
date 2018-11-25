@@ -40,6 +40,11 @@ assign out[7] = ~dot;
 
 endmodule
 
+module splitter(input wire [1:0] sdigit, 
+                input wire [3:0] digits);
+
+endmodule
+
 module top(input wire  CLK,
 //           output wire LED,
     output USBPU , // USB pull-up resistor
@@ -105,6 +110,8 @@ assign source = clk_counter[27:12];
     bcd bb(source, sdigit, ledout);
     //assign ledout = clk_counter[27:24];//clk_counter[25:22];
     segmented seg(ledout, usedot, leds);
+
+    splitter(sdigit, digits);
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;

@@ -2,17 +2,19 @@
 
 module Top;
   reg [15:0] num = 'h1234;
-  reg [2:0] digit = 0;
+  reg [1:0] digit = 0;
   wire [3:0] out;
   reg dot = 0;
   wire [7:0] segments;
+  wire [3:0] digits;
 
   bcd c(num, digit, out);
   segmented s(out, dot, segments);
+  splitter sss(digit, digits);
 
   initial
     begin
-      $monitor($time, " num = %X, digit = %d, out = %X | dot = %b segments = %b", num, digit, out, dot, segments  );
+      $monitor($time, " num = %X, digit = %d, out = %X | dot = %b segments = %b | split %b", num, digit, out, dot, segments ,digits );
 
       $dumpfile("ledstb.vcd");
       $dumpvars;
