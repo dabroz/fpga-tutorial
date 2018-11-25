@@ -16,7 +16,7 @@ module segmented(input wire [3:0] digit,
                  output wire [7:0] out);
 
 
-wire [7:0] patterns [0:9];
+wire [7:0] patterns [0:15];
 assign patterns[ 0] = 8'b11000000;
 assign patterns[ 1] = 8'b11111001;
 assign patterns[ 2] = 8'b10100100;
