@@ -64,7 +64,9 @@ module top(input wire  CLK,
     output PIN_21,
     output PIN_22,
     output PIN_23,
-    output PIN_24
+    output PIN_24,
+
+    input PIN_14
     );
 
 
@@ -98,6 +100,10 @@ assign  PIN_4 = digits[2];
 assign  PIN_2 = digits[1];
 assign PIN_24 = digits[0];
 
+wire button;
+
+assign button = PIN_14;
+
 wire [3:0] ledout;
 
 wire [1:0] sdigit;
@@ -112,8 +118,10 @@ assign source = clk_counter[35:20];
 //assign source2 = clk_counter[27:20];
 
 
-    bcd bb(source, sdigit, ledout);
-    //assign ledout = clk_counter[27:24];//clk_counter[25:22];
+//    bcd bb(source, sdigit, ledout);
+
+  assign ledout = button ? 8 : 0;
+
     segmented seg(ledout, usedot, leds);
 
     splitter ss(sdigit, digits);
