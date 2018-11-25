@@ -1,4 +1,4 @@
-`include "counter.v"
+`include "addermb.v"
 
 module Top;
   reg clk = 1;

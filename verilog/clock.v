@@ -2,11 +2,11 @@
 
 module Top;
   reg clock;
-  reg data;
-  wire q;
-  wire not_q;
+  reg [3:0] data;
+  wire [3:0] q;
+  wire [3:0] not_q;
 
-  clockdata a(clock, data, q, not_q);
+  memory4 a(clock, data, q, not_q);
 
   initial
     begin
@@ -14,14 +14,14 @@ module Top;
       $dumpfile("clock.vcd");
       $dumpvars;
 
-      clock = 1; data = 1;
-      #5 clock = 1; data = 0;
-      #5 clock = 1; data = 1;
-      #5 clock = 0; data = 1;
-      #5 clock = 1; data = 1;
-      #5 clock = 0; data = 0;
-      #5 clock = 1; data = 0;
-      #5 clock = 1; data = 1;
-      #5 $finish;
+      clock = 0; data = 0;
+      #50 clock = 1; data = 0;
+      #50 clock = 0; data = 7;
+      #50 clock = 1; data = 7;
+      #50 clock = 0; data = 1;
+      #50 clock = 1; data = 3;
+      #50 clock = 0; data = 0;
+      #50 clock = 1; data = 0;
+      #50 $finish;
     end
 endmodule // Top

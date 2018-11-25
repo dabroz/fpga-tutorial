@@ -47,17 +47,65 @@ module twonand(input wire not_s,
 endmodule
 
 
-module clockdata(input wire clock,
+module clockdata(input wire clk,
                  input wire data,
                  output wire q,
                  output wire not_q);
 
-  wire t1, t2, t3, t4;
+  reg stored = 0;
 
-  nand(t1, data, t2);
-  nand(t2, t1, clock, t4);
-  nand(t3, clock, t4);
-  nand(t4, t1, t3);
-  nand(not_q, t2, q);
-  nand(q, not_q, t3);
+  assign q = stored;
+  assign not_q = !stored;
+
+  always @(posedge clk) begin
+    stored <= data;
+  end
+
+  // wire t1, t2, t3, t4;
+
+  // nand(t1, data, t2);
+  // nand(t2, t1, clock, t4);
+  // nand(t3, clock, t4);
+  // nand(t4, t1, t3);
+  // nand(not_q, t2, q);
+  // nand(q, not_q, t3);
+endmodule
+
+module memory4(input wire clk,
+               input wire [3:0] data,
+               output wire [3:0] out,
+               output wire [3:0] negout);
+
+  clockdata c1(clk, data[0], out[0], negout[0]);
+  clockdata c2(clk, data[1], out[1], negout[1]);
+  clockdata c3(clk, data[2], out[2], negout[2]);
+  clockdata c4(clk, data[3], out[3], negout[3]);
+
+endmodule
+
+// The counter should increase on a positive clock edge whenever en (enable) is set, and reset to 0 whenever rst (reset) is set:
+
+module counter(input wire clk,
+               input wire en,
+               input wire rst,
+               output reg [3:0] count);
+
+  wire [3:0] store;
+  wire [3:0] negstore;
+  wire [3:0] data;
+  wire [3:0] next_data;
+  wire zero = 0;
+  wire one = 1;
+  wire [3:0] multizero = 0;
+  wire ignore_clk;
+
+  memory4 mem(clk, data, store, negstore);
+  adder4 aa(store, multizero, one, next_data, ignore_clk);
+
+  always @(posedge clk) begin
+
+   // data <= 
+
+  end
+
 endmodule
