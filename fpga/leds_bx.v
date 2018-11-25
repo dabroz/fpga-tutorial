@@ -90,7 +90,7 @@ assign digits[3] = PIN_24;
 
 wire [3:0] ledout;
 
-wire [2:0] sdigit = 3;
+wire [2:0] sdigit = 0;
 wire usedot = 1;
    
 wire [15:0] source;
@@ -98,16 +98,16 @@ wire [15:0] source;
 // 27.26.25.24    23.22.21.20   19.18.17.16   15.14.13.12
 
 assign source = clk_counter[27:12];
-assign source2 = clk_counter[27:20];
+//assign source2 = clk_counter[27:20];
 
 
-//    bcd bb(source, sdigit, ledout);
+    bcd bb(source, sdigit, ledout);
     //assign ledout = clk_counter[27:24];//clk_counter[25:22];
-  //  segmented seg(ledout, usedot, leds);
+    segmented seg(ledout, usedot, leds);
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
- leds = source2;
+// leds = source2;
   end
 
 endmodule
