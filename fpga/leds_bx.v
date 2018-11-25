@@ -69,7 +69,7 @@ module top(input wire  CLK,
 
 
 
-  parameter n = 34;
+  parameter n = 36;
   reg [n-1:0] clk_counter = 0;
 
     // drive USB pull-up resistor to '0' to disable USB
@@ -101,14 +101,14 @@ assign PIN_24 = digits[0];
 wire [3:0] ledout;
 
 wire [1:0] sdigit;
-wire usedot = 1;
+wire usedot = (clk_counter[1:0] == 1) ? 1 : 0;
    
 wire [15:0] source;
 
 // 27.26.25.24    23.22.21.20   19.18.17.16   15.14.13.12
 
 assign sdigit = clk_counter[1:0];
-assign source = clk_counter[33:18];
+assign source = clk_counter[35:20];
 //assign source2 = clk_counter[27:20];
 
 
