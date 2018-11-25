@@ -1,6 +1,6 @@
 
 module bcd(input wire [15:0] num,
-           input wire [2:0] digit,
+           input wire [1:0] digit,
            output wire [3:0] out);
 
   wire [15:0] temp;
@@ -90,13 +90,14 @@ assign digits[3] = PIN_24;
 
 wire [3:0] ledout;
 
-wire [2:0] sdigit = 0;
+wire [1:0] sdigit;
 wire usedot = 1;
    
 wire [15:0] source;
 
 // 27.26.25.24    23.22.21.20   19.18.17.16   15.14.13.12
 
+assign sdigit = clk_counter[1:0];
 assign source = clk_counter[27:12];
 //assign source2 = clk_counter[27:20];
 
