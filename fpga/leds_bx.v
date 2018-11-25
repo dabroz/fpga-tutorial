@@ -16,24 +16,24 @@ module segmented(input wire [3:0] digit,
                  output wire [7:0] out);
 
 
-wire [7:0] patterns [0:15];
-assign patterns[ 0] = 8'b11000000;
-assign patterns[ 1] = 8'b11111001;
-assign patterns[ 2] = 8'b10100100;
-assign patterns[ 3] = 8'b10110000;
-assign patterns[ 4] = 8'b10011001;
-assign patterns[ 5] = 8'b10010010;
-assign patterns[ 6] = 8'b10000010;
-assign patterns[ 7] = 8'b11111000;
-assign patterns[ 8] = 8'b10000000;
-assign patterns[ 9] = 8'b10010000;
+wire [6:0] patterns [0:15];
+assign patterns[ 0] = 7'b1000000;
+assign patterns[ 1] = 7'b1111001;
+assign patterns[ 2] = 7'b0100100;
+assign patterns[ 3] = 7'b0110000;
+assign patterns[ 4] = 7'b0011001;
+assign patterns[ 5] = 7'b0010010;
+assign patterns[ 6] = 7'b0000010;
+assign patterns[ 7] = 7'b1111000;
+assign patterns[ 8] = 7'b0000000;
+assign patterns[ 9] = 7'b0010000;
 
-assign patterns[10] = 8'b10001000;
-assign patterns[11] = 8'b11100000;
-assign patterns[12] = 8'b10110001;
-assign patterns[13] = 8'b11000010;
-assign patterns[14] = 8'b10110000;
-assign patterns[15] = 8'b10111000;
+assign patterns[10] = 7'b0001000;
+assign patterns[11] = 7'b1100000;
+assign patterns[12] = 7'b0110001;
+assign patterns[13] = 7'b1000010;
+assign patterns[14] = 7'b0110000;
+assign patterns[15] = 7'b0111000;
 
 assign out[6:0] = patterns[digit];
 assign out[7] = ~dot;
