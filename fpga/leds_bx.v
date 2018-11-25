@@ -87,7 +87,7 @@ assign digits[3] = PIN_24;
 
 wire [3:0] ledout;
 
-   // bcd bb(clk_counter[25:10], 3, ledout);
+    bcd bb(clk_counter[25:10], 3, ledout);
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
