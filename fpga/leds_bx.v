@@ -122,14 +122,15 @@ assign patterns[7] = 8'b00000111;  // b11100000;
 assign patterns[8] = 8'b01111111;  // b11111110;
 assign patterns[9] = 8'b01101111;  // b11110110;
 
+wire [3:0] ledout;
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
     //display(clk_counter[25:22]);
 
+    bcd(clk_counter[25:10], 3, ledout);
 
-
-   leds = ~patterns[clk_counter[25:22]];
+   leds = ~patterns[ledout];
   end
 
   // SOS pattern
