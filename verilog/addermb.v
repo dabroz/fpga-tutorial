@@ -35,3 +35,13 @@ module adder4(input wire [3:0] x,
   assign s = full[3:0];
   assign c_out = full[4:4];
 endmodule
+
+
+module twonand(input wire not_s,
+               input wire not_r,
+               output wire q,
+               output wire not_q);
+
+  nand(q, not_s, not_q);
+  nand(not_q, q, not_r);
+endmodule
