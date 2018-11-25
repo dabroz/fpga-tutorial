@@ -112,7 +112,7 @@ assign patterns[9] = 8'b01101111;  // b11110110;
 
 
 
-   leds = ~patterns[0];//clk_counter[25:22]];
+   leds = ~patterns[clk_counter[25:22]];
   end
 
   // SOS pattern
