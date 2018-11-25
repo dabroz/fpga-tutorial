@@ -97,9 +97,10 @@ wire [15:0] source;
 
 // 27.26.25.24    23.22.21.20   19.18.17.16   15.14.13.12
 
-//assign source = clk_counter[27:12];
+assign source = clk_counter[27:12];
+assign source2 = clk_counter[27:20];
 
-assign leds = clk_counter[27:20];
+assign leds = source2;
 
 //    bcd bb(source, sdigit, ledout);
     //assign ledout = clk_counter[27:24];//clk_counter[25:22];
