@@ -16,6 +16,8 @@ module Top;
       $dumpfile("adder_tb3.vcd");
       $dumpvars;
 
+      // x = 'b1010 ; y = 4'b1100; 
+
       x = 0; y = 0; c_in = 0;
       #5 x = 1; y = 2; c_in = 0;
       #5 x = 5; y = 5; c_in = 1;
