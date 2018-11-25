@@ -10,7 +10,7 @@ module bcd(input wire [15:0] num,
            input wire [2:0] digit,
            output wire [3:0] out);
 
-  reg [15:0] temp;
+  wire [15:0] temp;
 
   assign temp = num & 15;
   
