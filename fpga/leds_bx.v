@@ -29,11 +29,11 @@ assign patterns[ 8] = 7'b0000000;
 assign patterns[ 9] = 7'b0010000;
 
 assign patterns[10] = 7'b0001000;
-assign patterns[11] = 7'b1100000;
-assign patterns[12] = 7'b0110001;
-assign patterns[13] = 7'b1000010;
-assign patterns[14] = 7'b0110000;
-assign patterns[15] = 7'b0111000;
+assign patterns[11] = 7'b0000011;
+assign patterns[12] = 7'b1000110;
+assign patterns[13] = 7'b0100001;
+assign patterns[14] = 7'b0000110;
+assign patterns[15] = 7'b0001110;
 
 assign out[6:0] = patterns[digit];
 assign out[7] = ~dot;
