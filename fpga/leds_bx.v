@@ -102,7 +102,8 @@ assign PIN_24 = digits[0];
 
 wire button;
 
-assign button = PIN_14;
+//assign button = PIN_14;
+  pullup pu(PIN_14, button);
 
 wire [3:0] ledout;
 
@@ -132,3 +133,13 @@ assign source = clk_counter[35:20];
   end
 
 endmodule
+
+
+module pullup(input wire package_pin,
+              input wire data_in);
+  // PIN_TYPE: <output_type=0>_<input=1>
+  SB_IO #(.PIN_TYPE(6'b0000_01),
+          .PULLUP(1'b1))
+  io(.PACKAGE_PIN(package_pin), .D_IN_0(data_in));
+endmodule
+
