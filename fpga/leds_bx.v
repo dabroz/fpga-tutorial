@@ -101,7 +101,7 @@ assign PIN_24 = digits[0];
 wire [3:0] ledout;
 
 wire [1:0] sdigit;
-wire usedot = (clk_counter[1:0] == 1) ? clk_counter[31] : 0;
+wire usedot = (clk_counter[1:0] == 1) ? clk_counter[26] : 0;
    
 wire [15:0] source;
 
