@@ -93,14 +93,26 @@ assign digits[3] = PIN_24;
 // end
 // endtask
 
+reg [7:0] patterns [0:9];
+assign patterns[0] = 8'b11111100;
+assign patterns[1] = 8'b01100000;
+assign patterns[2] = 8'b11011010;
+assign patterns[3] = 8'b11110010;
+assign patterns[4] = 8'b01100110;
+assign patterns[5] = 8'b10110110;
+assign patterns[6] = 8'b10111110;
+assign patterns[7] = 8'b11100000;
+assign patterns[8] = 8'b11111110;
+assign patterns[9] = 8'b11110110;
+
+
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
     //display(clk_counter[25:22]);
 
 
 
-   leds[7:4] = clk_counter[25:22];
-   leds[3:0] = clk_counter[25:22];
+   leds = patterns[clk_counter[25:22]];
   end
 
   // SOS pattern
@@ -124,21 +136,10 @@ Digit Display   a  b  c  d  e  f  g
 
 //  assign leds = 8'b01010101;
 
-reg [7:0] patterns [0:9];
-assign patterns[0] = 8'b11111100;
-assign patterns[1] = 8'b01100000;
-assign patterns[2] = 8'b11011010;
-assign patterns[3] = 8'b11110010;
-assign patterns[4] = 8'b01100110;
-assign patterns[5] = 8'b10110110;
-assign patterns[6] = 8'b10111110;
-assign patterns[7] = 8'b11100000;
-assign patterns[8] = 8'b11111110;
-assign patterns[9] = 8'b11110110;
 
   assign LED = blink_pattern[clk_counter[n-1:n-5]];
 
 
-  display(patterns[clk_counter[25:22]], leds);
+//  display(patterns[clk_counter[25:22]], leds);
 
 endmodule
