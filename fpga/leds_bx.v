@@ -93,7 +93,7 @@ assign digits[3] = PIN_24;
 // end
 // endtask
 
-reg [7:0] patterns [0:9];
+wire [7:0] patterns [0:9];
 assign patterns[0] = 8'b11111100;
 assign patterns[1] = 8'b01100000;
 assign patterns[2] = 8'b11011010;
