@@ -7,7 +7,7 @@ module Top;
   wire s;
   wire c_out;
 
-  half_adder ha(x, y, s, c_out);
+  adder a(x, y, c_in, s, c_out);
 
   initial
     begin
