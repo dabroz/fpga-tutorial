@@ -84,18 +84,21 @@ assign digits[2] = PIN_2;
 assign digits[3] = PIN_24;
 
 
-task display;
- input wire [3:0] digit;
-// output wire [7:0] leds;
-begin
- leds[7:4] = digit;
- leds[3:0] = digit;
-end
-endtask
+// task display;
+//  input wire [3:0] digit;
+// // output wire [7:0] leds;
+// begin
+//  leds[7:4] = digit;
+//  leds[3:0] = digit;
+// end
+// endtask
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
-    display(clk_counter[25:22]);
+    //display(clk_counter[25:22]);
+
+   leds[7:4] = clk_counter[25:22];
+   leds[3:0] = clk_counter[25:22];
   end
 
   // SOS pattern
