@@ -5,6 +5,16 @@
 //    top: 11, 8, 6, 4, 2, 1
 // bottom: 19, 20, 21, 22, 23, 24
 
+
+module bcd(input wire [15:0] num,
+           input wire [2:0] digit,
+           output wire [3:0] out);
+
+  
+  assign out = 4;
+
+endmodule
+
 module top(input wire  CLK,
            output wire LED,
     output USBPU , // USB pull-up resistor
@@ -19,7 +29,7 @@ module top(input wire  CLK,
     output PIN_21,
     output PIN_22,
     output PIN_23,
-    output PIN_24,
+    output PIN_24
     );
 
 
