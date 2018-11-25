@@ -124,8 +124,8 @@ assign patterns[9] = 8'b01101111;  // b11110110;
 
 wire [3:0] ledout;
 
-    bcd(clk_counter[25:10], 3, ledout);
-    
+    bcd bb(clk_counter[25:10], 3, ledout);
+
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
     //display(clk_counter[25:22]);
