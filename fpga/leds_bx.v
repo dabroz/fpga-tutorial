@@ -141,7 +141,7 @@ wire [3:0] ledout;
     //display(clk_counter[25:22]);
 
 
-   leds = ~patterns[ledout];
+//   leds = ~patterns[ledout];
   end
 
   // SOS pattern
