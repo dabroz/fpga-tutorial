@@ -138,7 +138,7 @@ assign source = clk_counter[35:20];
     if (!button) clk_counter <= 0;
 // leds = source2;
 
-speaker = clk_counter[6];
+speaker = clk_counter[10];
   end
 
 endmodule
