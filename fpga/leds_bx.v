@@ -75,10 +75,10 @@ module top(input wire  CLK,
     // drive USB pull-up resistor to '0' to disable USB
     assign USBPU = 0;
 
-assign PIN_2 = 1;
-assign PIN_4 = 1;
-assign PIN_11 = 1;
-assign PIN_24 = 1;
+// assign PIN_2 = 1;
+// assign PIN_4 = 1;
+// assign PIN_11 = 1;
+// assign PIN_24 = 1;
 
 reg [7:0] leds;
 
