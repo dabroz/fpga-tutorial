@@ -59,7 +59,7 @@ module top(input wire  CLK,
 
 
 
-  parameter n = 27;
+  parameter n = 28;
   reg [n-1:0] clk_counter = 0;
 
     // drive USB pull-up resistor to '0' to disable USB
@@ -98,7 +98,7 @@ wire [15:0] source;
 assign source = clk_counter[15:0];//n-1:n-16];
 
     //bcd bb(source, sdigit, ledout);
-    assign ledout = clk_counter[26:23];//clk_counter[25:22];
+    assign ledout = clk_counter[27:24];//clk_counter[25:22];
     segmented seg(ledout, usedot, leds);
 
   always @(posedge CLK) begin
