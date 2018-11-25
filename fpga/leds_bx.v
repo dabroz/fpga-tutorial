@@ -66,7 +66,8 @@ module top(input wire  CLK,
     output PIN_23,
     output PIN_24,
 
-    input PIN_14
+    input PIN_14,
+    output PIN_15
     );
 
 
@@ -105,6 +106,10 @@ wire button;
 //assign button = PIN_14;
   pullup pu(PIN_14, button);
 
+  wire speaker;
+
+  assign speaker = PIN_15;
+
 wire [3:0] ledout;
 
 wire [1:0] sdigit;
@@ -132,6 +137,8 @@ assign source = clk_counter[35:20];
 
     if (!button) clk_counter <= 0;
 // leds = source2;
+
+speaker = clk_counter[3];
   end
 
 endmodule
