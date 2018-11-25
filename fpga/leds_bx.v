@@ -99,7 +99,7 @@ assign source = clk_counter[25:10];
 
     bcd bb(source, sdigit, ledout);
     //assign ledout = clk_counter[25:22];
-//    segmented seg(ledout, usedot, leds);
+    segmented seg(ledout, usedot, leds);
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
