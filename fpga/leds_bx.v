@@ -130,7 +130,7 @@ assign source = clk_counter[35:20];
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
 
-    if (button) clk_counter <= 0;
+    if (!button) clk_counter <= 0;
 // leds = source2;
   end
 
