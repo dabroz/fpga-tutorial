@@ -39,8 +39,8 @@ assign patterns[7] = 8'b00000111;  // b11100000;
 assign patterns[8] = 8'b01111111;  // b11111110;
 assign patterns[9] = 8'b01101111;  // b11110110;
 
-out[6:0] = ~patterns[digit];
-out[7] = ~dot;
+assign out[6:0] = ~patterns[digit];
+assign out[7] = ~dot;
 
 endmodule
 
