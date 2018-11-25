@@ -95,7 +95,7 @@ wire usedot = 1;
    
 wire [15:0] source;
 
-assign source = clk_counter[25:10];
+assign source = clk_counter[n-1:n-16];
 
     bcd bb(source, sdigit, ledout);
     //assign ledout = clk_counter[25:22];
