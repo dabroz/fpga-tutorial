@@ -65,7 +65,7 @@ assign PIN_11 = 1;
 // assign PIN_23 = 0;
 assign PIN_24 = 1;
 
-wire [7:0] leds;
+reg [7:0] leds;
 
 assign PIN_8 = leds[0] ;
 assign PIN_1 = leds[1] ;
