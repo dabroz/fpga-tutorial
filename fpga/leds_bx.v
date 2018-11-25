@@ -13,7 +13,7 @@ module bcd(input wire [15:0] num,
   wire [15:0] temp;
 
 
-  assign temp = num / 10;
+  assign temp = (digit == 0) ? (num / 1000) : 6;
   
   assign out = temp[3:0];
 
