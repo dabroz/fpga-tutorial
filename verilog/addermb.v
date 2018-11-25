@@ -20,10 +20,7 @@ module adder(input wire x,
 endmodule
 
 module adder4(input wire [3:0] x,
-              input wire y_0,
-              input wire y_1,
-              input wire y_2,
-              input wire y_3,
+              input wire [3:0] y,
               input wire c_in,
               output wire s_0,
               output wire s_1,
@@ -33,8 +30,8 @@ module adder4(input wire [3:0] x,
   wire c_0;
   wire c_1;
   wire c_2;
-  adder a_0(x[0:0], y_0, c_in, s_0, c_0);
-  adder a_1(x[1:1], y_1, c_0,  s_1, c_1);
-  adder a_2(x[2:2], y_2, c_1,  s_2, c_2);
-  adder a_3(x[3:3], y_3, c_2,  s_3, c_out);
+  adder a_0(x[0:0], y[0:0], c_in, s_0, c_0);
+  adder a_1(x[1:1], y[1:1], c_0,  s_1, c_1);
+  adder a_2(x[2:2], y[2:2], c_1,  s_2, c_2);
+  adder a_3(x[3:3], y[3:3], c_2,  s_3, c_out);
 endmodule
