@@ -22,6 +22,28 @@ module bcd(input wire [15:0] num,
 
 endmodule
 
+module segmented(input wire [3:0] digit,
+                 input wire dot,
+                 output wire [7:0] out);
+
+
+wire [7:0] patterns [0:9];
+assign patterns[0] = 8'b00111111;  // b11111100;
+assign patterns[1] = 8'b00000110;  // b01100000;
+assign patterns[2] = 8'b01011011;  // b11011010;
+assign patterns[3] = 8'b01001111;  // b11110010;
+assign patterns[4] = 8'b01100110;  // b01100110;
+assign patterns[5] = 8'b01101101;  // b10110110;
+assign patterns[6] = 8'b01111101;  // b10111110;
+assign patterns[7] = 8'b00000111;  // b11100000;
+assign patterns[8] = 8'b01111111;  // b11111110;
+assign patterns[9] = 8'b01101111;  // b11110110;
+
+out[6:0] = ~patterns[digit];
+out[7] = ~dot;
+
+endmodule
+
 module top(input wire  CLK,
            output wire LED,
     output USBPU , // USB pull-up resistor
@@ -109,18 +131,6 @@ assign digits[3] = PIN_24;
 //  leds[3:0] = digit;
 // end
 // endtask
-
-wire [7:0] patterns [0:9];
-assign patterns[0] = 8'b00111111;  // b11111100;
-assign patterns[1] = 8'b00000110;  // b01100000;
-assign patterns[2] = 8'b01011011;  // b11011010;
-assign patterns[3] = 8'b01001111;  // b11110010;
-assign patterns[4] = 8'b01100110;  // b01100110;
-assign patterns[5] = 8'b01101101;  // b10110110;
-assign patterns[6] = 8'b01111101;  // b10111110;
-assign patterns[7] = 8'b00000111;  // b11100000;
-assign patterns[8] = 8'b01111111;  // b11111110;
-assign patterns[9] = 8'b01101111;  // b11110110;
 
 wire [3:0] ledout;
 
