@@ -87,7 +87,7 @@ assign digits[3] = PIN_24;
 
 wire [3:0] ledout;
 
-wire [3:0] sdigit = 3;
+wire [2:0] sdigit = 3;
 wire usedot = 1;
    
     bcd bb(clk_counter[25:10], sdigit, ledout);
