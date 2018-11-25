@@ -45,3 +45,19 @@ module twonand(input wire not_s,
   nand(q, not_s, not_q);
   nand(not_q, q, not_r);
 endmodule
+
+
+module clockdata(input wire clock,
+                 input wire data,
+                 output wire q,
+                 output wire not_q);
+
+  wire t1, t2, t3, t4;
+
+  nand(t1, data, t2);
+  nand(t2, t1, clock, t4);
+  nand(t3, clock, t4);
+  nand(t4, t1, t3);
+  nand(not_q, t2, q);
+  nand(q, not_q, t3);
+endmodule
