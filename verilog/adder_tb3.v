@@ -11,7 +11,7 @@ module Top;
 
   initial
     begin
-      $monitor($time, " x_0 = %b, x_1 = %b, x_2 = %b, x_3 = %b, y_0 = %b, y_1 = %b, y_2 = %b, y_3 = %b, c_in = %b, s_0 = %b, s_1 = %b, s_2 = %b, s_3 = %b, c_out = %b",
+      $monitor($time, " x = %b%b%b%b, y = %b%b%b%b, c_in = %b, s = %b%b%b%b, c_out = %b",
                x_0, x_1, x_2, x_3, y_0, y_1, y_2, y_3, c_in, s_0, s_1, s_2, s_3, c_out);
       $dumpfile("adder_tb3.vcd");
       $dumpvars;
