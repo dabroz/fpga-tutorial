@@ -5,7 +5,7 @@ module bcd(input wire [15:0] num,
 
   wire [15:0] temp;
 
-  assign temp = num >> (digit * 3);
+  assign temp = num >> ((3-digit) * 4);
   
   assign out = temp & 15;
 
