@@ -67,14 +67,14 @@ assign PIN_24 = 1;
 
 wire [7:0] leds;
 
-assign leds[0] = PIN_8;
-assign leds[1] = PIN_1;
-assign leds[2] = PIN_22;
-assign leds[3] = PIN_20;
-assign leds[4] = PIN_19;
-assign leds[5] = PIN_6;
-assign leds[6] = PIN_23;
-assign leds[7] = PIN_21;
+assign PIN_8 = leds[0] ;
+assign PIN_1 = leds[1] ;
+assign PIN_22 = leds[2] ;
+assign PIN_20 = leds[3] ;
+assign PIN_19 = leds[4] ;
+assign PIN_6 = leds[5] ;
+assign PIN_23 = leds[6] ;
+assign PIN_21 = leds[7] ;
 
 wire [3:0] digits;
 
