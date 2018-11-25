@@ -1,7 +1,7 @@
 `include "leds_bx.v"
 
 module Top;
-  reg [15:0] num = 1234;
+  reg [15:0] num = 'h1234;
   reg [2:0] digit = 0;
   wire [3:0] out;
   reg dot = 0;
@@ -21,7 +21,7 @@ module Top;
       #4 digit = 1;
       #8 digit = 2;
       #2 dot = 1; digit = 3;
-      #6 num = 6677; digit = 2;
+      #6 num = 'h66B7; digit = 2;
       #2 $finish;
     end
 endmodule // Top
