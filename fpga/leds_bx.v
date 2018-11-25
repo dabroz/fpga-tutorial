@@ -28,12 +28,12 @@ assign patterns[ 7] = 8'b11111000;
 assign patterns[ 8] = 8'b10000000;
 assign patterns[ 9] = 8'b10010000;
 
-assign patterns[10] = 8'b00001000;
-assign patterns[11] = 8'b01100000;
-assign patterns[12] = 8'b00110001;
-assign patterns[13] = 8'b01000010;
-assign patterns[14] = 8'b00110000;
-assign patterns[15] = 8'b00111000;
+assign patterns[10] = 8'b10001000;
+assign patterns[11] = 8'b11100000;
+assign patterns[12] = 8'b10110001;
+assign patterns[13] = 8'b11000010;
+assign patterns[14] = 8'b10110000;
+assign patterns[15] = 8'b10111000;
 
 assign out[6:0] = patterns[digit];
 assign out[7] = ~dot;
