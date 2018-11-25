@@ -95,7 +95,7 @@ endtask
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
-    display(clk_counter[25:22], leds);
+    display(clk_counter[25:22]);
   end
 
   // SOS pattern
