@@ -12,7 +12,7 @@ module Top;
 
   initial
     begin
-      $monitor($time, " num = %d, digit = %d, out = %d | dot = %b segments = %b", num, digit, out, dot, segments  );
+      $monitor($time, " num = %X, digit = %d, out = %X | dot = %b segments = %b", num, digit, out, dot, segments  );
 
       $dumpfile("ledstb.vcd");
       $dumpvars;
