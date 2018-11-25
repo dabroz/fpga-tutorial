@@ -24,11 +24,14 @@ module adder4(input wire [3:0] x,
               input wire c_in,
               output wire [3:0] s,
               output wire c_out);
-  wire c_0;
-  wire c_1;
-  wire c_2;
-  adder a_0(x[0:0], y[0:0], c_in, s[0:0], c_0);
-  adder a_1(x[1:1], y[1:1], c_0,  s[1:1], c_1);
-  adder a_2(x[2:2], y[2:2], c_1,  s[2:2], c_2);
-  adder a_3(x[3:3], y[3:3], c_2,  s[3:3], c_out);
+  // wire c_0;
+  // wire c_1;
+  // wire c_2;
+  // adder a_0(x[0:0], y[0:0], c_in, s[0:0], c_0);
+  // adder a_1(x[1:1], y[1:1], c_0,  s[1:1], c_1);
+  // adder a_2(x[2:2], y[2:2], c_1,  s[2:2], c_2);
+  // adder a_3(x[3:3], y[3:3], c_2,  s[3:3], c_out);
+  wire [4:0] full = x + y + c_in;
+  assign s = full[3:0];
+  assign c_out = full[4:4];
 endmodule
