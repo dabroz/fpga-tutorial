@@ -83,28 +83,65 @@ module memory4(input wire clk,
 
 endmodule
 
+
+
+module clockdata4(input wire clk,
+                 input wire [3:0] data,
+                 output wire [3:0] q,
+                 output wire [3:0] not_q);
+
+  reg [3:0] stored = 0;
+
+  assign q = stored;
+  assign not_q = !stored;
+
+  always @(posedge clk) begin
+    stored <= data;
+  end
+
+  // wire t1, t2, t3, t4;
+
+  // nand(t1, data, t2);
+  // nand(t2, t1, clock, t4);
+  // nand(t3, clock, t4);
+  // nand(t4, t1, t3);
+  // nand(not_q, t2, q);
+  // nand(q, not_q, t3);
+endmodule
+
 // The counter should increase on a positive clock edge whenever en (enable) is set, and reset to 0 whenever rst (reset) is set:
 
 module counter(input wire clk,
                input wire en,
                input wire rst,
-               output reg [3:0] count);
+               output reg [3:0] count /*= 0*/);
 
-  wire [3:0] store;
+  initial count = 0;
+
+  /*wire [3:0] store;
   wire [3:0] negstore;
-  wire [3:0] data;
+  reg [3:0] data = 0;
   wire [3:0] next_data;
   wire zero = 0;
   wire one = 1;
   wire [3:0] multizero = 0;
   wire ignore_clk;
 
-  memory4 mem(clk, data, store, negstore);
-  adder4 aa(store, multizero, one, next_data, ignore_clk);
+  clockdata4 mem(clk, data, store, negstore);
+  adder4 aa(store, multizero, one, next_data, ignore_clk);*/
+
+  //reg [3:0] data = 0;
 
   always @(posedge clk) begin
 
-   // data <= 
+   if (en) begin
+     //count <= next_data;
+     count <= count + 1;
+   end
+   if (rst) begin
+     //count <= 0;
+     count <= 0;
+   end
 
   end
 

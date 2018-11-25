@@ -10,6 +10,8 @@ all:
 
 # Use apio toolchain
 TOOLCHAIN = $(HOME)/.apio/packages/toolchain-icestorm/bin
+#TOOLCHAIN2 = /Users/jablko/Library/Python/3.7/bin/
+#export PATH := $(TOOLCHAIN2):$(TOOLCHAIN):$(PATH)
 export PATH := $(TOOLCHAIN):$(PATH)
 
 YOSYS ?= yosys
