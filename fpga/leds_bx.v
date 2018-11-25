@@ -93,10 +93,10 @@ assign PIN_21 = leds[7];
 
 wire [3:0] digits;
 
-assign digits[0] = PIN_11;
-assign digits[1] = PIN_4;
-assign digits[2] = PIN_2;
-assign digits[3] = PIN_24;
+assign PIN_11 = digits[0];
+assign  PIN_4 = digits[1];
+assign  PIN_2 = digits[2];
+assign PIN_24 = digits[3];
 
 wire [3:0] ledout;
 
