@@ -100,7 +100,6 @@ wire [15:0] source;
 assign source = clk_counter[27:12];
 assign source2 = clk_counter[27:20];
 
-leds = source2;
 
 //    bcd bb(source, sdigit, ledout);
     //assign ledout = clk_counter[27:24];//clk_counter[25:22];
@@ -108,6 +107,7 @@ leds = source2;
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
+ leds = source2;
   end
 
 endmodule
