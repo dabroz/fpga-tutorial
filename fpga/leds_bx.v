@@ -5,13 +5,9 @@ module bcd(input wire [15:0] num,
 
   wire [15:0] temp;
 
-  assign temp = (digit == 0) ? (num / 1000) : (
-    (digit == 1) ? (num / 100) : (
-      (digit == 2) ? (num / 10) : num 
-    )
-  );
+  assign temp = num >> (digit * 3);
   
-  assign out = temp % 10;
+  assign out = temp & 15;
 
 endmodule
 
@@ -21,18 +17,25 @@ module segmented(input wire [3:0] digit,
 
 
 wire [7:0] patterns [0:9];
-assign patterns[0] = 8'b00111111;
-assign patterns[1] = 8'b00000110;
-assign patterns[2] = 8'b01011011;
-assign patterns[3] = 8'b01001111;
-assign patterns[4] = 8'b01100110;
-assign patterns[5] = 8'b01101101;
-assign patterns[6] = 8'b01111101;
-assign patterns[7] = 8'b00000111;
-assign patterns[8] = 8'b01111111;
-assign patterns[9] = 8'b01101111;
+assign patterns[ 0] = 8'b11000000;
+assign patterns[ 1] = 8'b11111001;
+assign patterns[ 2] = 8'b10100100;
+assign patterns[ 3] = 8'b10110000;
+assign patterns[ 4] = 8'b10011001;
+assign patterns[ 5] = 8'b10010010;
+assign patterns[ 6] = 8'b10000010;
+assign patterns[ 7] = 8'b11111000;
+assign patterns[ 8] = 8'b10000000;
+assign patterns[ 9] = 8'b10010000;
 
-assign out[6:0] = ~patterns[digit];
+assign patterns[10] = 8'b00001000;
+assign patterns[11] = 8'b01100000;
+assign patterns[12] = 8'b00110001;
+assign patterns[13] = 8'b01000010;
+assign patterns[14] = 8'b00110000;
+assign patterns[15] = 8'b00111000;
+
+assign out[6:0] = patterns[digit];
 assign out[7] = ~dot;
 
 endmodule
