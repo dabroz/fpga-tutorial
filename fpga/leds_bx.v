@@ -38,7 +38,7 @@ assign out[7] = ~dot;
 endmodule
 
 module top(input wire  CLK,
-           output wire LED,
+//           output wire LED,
     output USBPU , // USB pull-up resistor
     output PIN_1,
     output PIN_2,
@@ -87,9 +87,11 @@ assign digits[3] = PIN_24;
 
 wire [3:0] ledout;
 
+wire [3:0] sdigit = 3;
+wire usedot = 1;
    
-    bcd bb(clk_counter[25:10], 3, ledout);
-    segmented seg(ledout, 0, leds);
+    bcd bb(clk_counter[25:10], sdigit, ledout);
+    segmented seg(ledout, usedot, leds);
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
