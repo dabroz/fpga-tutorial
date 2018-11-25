@@ -119,9 +119,9 @@ assign source = clk_counter[35:20];
 //assign source2 = clk_counter[27:20];
 
 
-//    bcd bb(source, sdigit, ledout);
+   bcd bb(source, sdigit, ledout);
 
-  assign ledout = button ? 8 : 0;
+  //assign ledout = button ? 8 : 0;
 
     segmented seg(ledout, usedot, leds);
 
@@ -129,6 +129,8 @@ assign source = clk_counter[35:20];
 
   always @(posedge CLK) begin
     clk_counter <= clk_counter + 1;
+
+    if (button) clk_counter <= 0;
 // leds = source2;
   end
 
