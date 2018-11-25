@@ -95,10 +95,12 @@ wire usedot = 1;
    
 wire [15:0] source;
 
-assign source = clk_counter[15:0];//n-1:n-16];
+// 27.26.25.24    23.22.21.20   19.18.17.16   15.14.13.12
 
-    //bcd bb(source, sdigit, ledout);
-    assign ledout = clk_counter[27:24];//clk_counter[25:22];
+assign source = clk_counter[27:12];
+
+    bcd bb(source, sdigit, ledout);
+    //assign ledout = clk_counter[27:24];//clk_counter[25:22];
     segmented seg(ledout, usedot, leds);
 
   always @(posedge CLK) begin
