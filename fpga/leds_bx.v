@@ -67,7 +67,6 @@ assign PIN_24 = 1;
 
 wire [7:0] leds;
 
-
 assign leds[0] = PIN_8;
 assign leds[1] = PIN_1;
 assign leds[2] = PIN_22;
@@ -77,6 +76,12 @@ assign leds[5] = PIN_6;
 assign leds[6] = PIN_23;
 assign leds[7] = PIN_21;
 
+wire [3:0] digits;
+
+assign digits[0] = PIN_11;
+assign digits[1] = PIN_4;
+assign digits[2] = PIN_2;
+assign digits[3] = PIN_24;
 
 
   always @(posedge CLK) begin
@@ -102,7 +107,19 @@ Digit Display gfedcba abcdefg a b c d e f g
 9 9 0x6F  0x7B  on  on  on  on  off on  on
 */
 
-  assign leds = 8'b01010101;
+//  assign leds = 8'b01010101;
 
   assign LED = blink_pattern[clk_counter[n-1:n-5]];
+
+
+  display(clk_counter[25:22], leds);
+
+endmodule
+
+module display(input wire [3:0] digit,
+  output wire [7:0] leds);
+
+  assign leds[7:4] = digit;
+  assign leds[3:0] = digit;
+
 endmodule
