@@ -12,10 +12,13 @@ module bcd(input wire [15:0] num,
 
   wire [15:0] temp;
 
-
-  assign temp = (digit == 0) ? (num / 1000) : ((digit == 1) ? (num / 100) : ( (digit == 2) ? (num/10) : num ));
+  assign temp = (digit == 0) ? (num / 1000) : (
+    (digit == 1) ? (num / 100) : (
+      (digit == 2) ? (num / 10) : num 
+    )
+  );
   
-  assign out = temp[3:0] % 10;
+  assign out = temp % 10;
 
 endmodule
 
