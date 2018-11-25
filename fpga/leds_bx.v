@@ -94,16 +94,16 @@ assign digits[3] = PIN_24;
 // endtask
 
 wire [7:0] patterns [0:9];
-assign patterns[0] = 8'b00111111;  // b11111100;
-assign patterns[1] = 8'b00000110;  // b01100000;
-assign patterns[2] = 8'b01011011;  // b11011010;
-assign patterns[3] = 8'b01001111;  // b11110010;
-assign patterns[4] = 8'b01100110;  // b01100110;
-assign patterns[5] = 8'b01101101;  // b10110110;
-assign patterns[6] = 8'b01111101;  // b10111110;
-assign patterns[7] = 8'b00000111;  // b11100000;
-assign patterns[8] = 8'b01111111;  // b11111110;
-assign patterns[9] = 8'b01101111;  // b11110110;
+assign patterns[0] = 8'b11111100;
+assign patterns[1] = 8'b01100000;
+assign patterns[2] = 8'b11011010;
+assign patterns[3] = 8'b11110010;
+assign patterns[4] = 8'b01100110;
+assign patterns[5] = 8'b10110110;
+assign patterns[6] = 8'b10111110;
+assign patterns[7] = 8'b11100000;
+assign patterns[8] = 8'b11111110;
+assign patterns[9] = 8'b11110110;
 
 
   always @(posedge CLK) begin
@@ -112,7 +112,7 @@ assign patterns[9] = 8'b01101111;  // b11110110;
 
 
 
-   leds = patterns[clk_counter[25:22]];
+   leds = patterns[0];//clk_counter[25:22]];
   end
 
   // SOS pattern
