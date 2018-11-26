@@ -7,7 +7,7 @@ fi
 
 ROOT=$1
 FILE=$2
-DEPS=$(gsed -nr 's/^`include "(.*\.v)"$/\1/p' $FILE | tr '\n' ' ')
+DEPS=$(sed -n 's/^`include "\(.*\.v\)"$/\1/p' $FILE | tr '\n' ' ')
 
 if [ -z "$DEPS" ]; then
     exit
